@@ -10,6 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
+/**
+ * The BatterController class handles HTTP requests related to batter statistics.
+ * It retrieves a list of batters from the service layer and displays them using the "batting-stats" template.
+ * The controller is responsible for mapping the "/batting-stats" endpoint to the relevant view.
+ * It uses the BatterService to fetch data from the underlying data source and injects it into the model.
+ */
+
 @Controller
 @RequestMapping("/batting-stats")
 public class BatterController {

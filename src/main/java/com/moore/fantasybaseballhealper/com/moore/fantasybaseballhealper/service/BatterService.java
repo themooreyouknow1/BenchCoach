@@ -7,6 +7,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * The BatterService class is responsible for managing batter-related operations.
+ * It serves as a service layer between the controller and the data layer (BatterRepository).
+ * The service is responsible for fetching batter data and performing business logic related to batters.
+ */
+
 @Service
 public class BatterService {
 

@@ -2,6 +2,13 @@ package com.moore.fantasybaseballhealper.com.moore.fantasybaseballhealper.model;
 
 import jakarta.persistence.*;
 
+/**
+ * This class Represents a pitcher's statistics for the 2024 season.
+ * Each field represents a different statistic.
+ * Methods in this class allow access to these statistics, and any updates to them.
+ * The class is annotated with JPA annotations to map it to the "2024_pitcher_stats" table in the database.
+ */
+
 @Entity
 @Table(name = "2024_pitcher_stats")
 public class Pitcher {

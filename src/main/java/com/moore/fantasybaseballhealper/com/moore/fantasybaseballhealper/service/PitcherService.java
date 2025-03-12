@@ -8,6 +8,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * The PitcherService class is responsible for managing pitcher-related operations.
+ * It serves as a service layer between the controller and the data layer (PitcherRepository).
+ * The service is responsible for fetching pitcher data and performing business logic related to pitchers.
+ */
+
 @Service
 public class PitcherService {
 

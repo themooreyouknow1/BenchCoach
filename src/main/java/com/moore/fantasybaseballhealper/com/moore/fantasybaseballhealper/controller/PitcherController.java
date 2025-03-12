@@ -10,6 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
+/**
+ * The PitcherController class is responsible for handling requests related to pitcher statistics.
+ * It maps the "/pitching-stats" endpoint to the appropriate view and serves the pitching statistics data.
+ * This controller interacts with the PitcherService to retrieve the list of pitcher statistics for display.
+ */
+
 @Controller
 @RequestMapping("/pitching-stats")
 public class PitcherController {

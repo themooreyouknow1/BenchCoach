@@ -7,6 +7,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * The PlayerTargetController class is responsible for handling requests related to player target management.
+ * It provides endpoints for displaying, creating, updating, and deleting player target information.
+ * This controller interacts with the PlayerTargetService to perform CRUD (Create, Read, Update, Delete) operations
+ * on player target data, which is then displayed through the associated views.
+ */
+
 @Controller
 @RequestMapping("/player-targets")
 public class PlayerTargetController {
@@ -41,20 +48,20 @@ public class PlayerTargetController {
             model.addAttribute("playerTarget", playerTarget);
             return "player-target-form";
         }
-        return "redirect:/player-targets";  // Redirect if playerTarget not found
+        return "redirect:/player-targets";
     }
     // Update the player target
     @PostMapping("/update/{id}")
     public String updatePlayerTarget(@PathVariable Long id, @ModelAttribute("playerTarget") PlayerTarget playerTarget) {
-        playerTarget.setId(id);  // Ensure the ID is set for the update
-        playerTargetService.savePlayerTarget(playerTarget); // This will update the existing record
-        return "redirect:/player-targets";  // Redirect to the list page
+        playerTarget.setId(id);
+        playerTargetService.savePlayerTarget(playerTarget);
+        return "redirect:/player-targets";
     }
 
     // Delete a player target
     @GetMapping("/delete/{id}")
     public String deletePlayerTarget(@PathVariable Long id) {
         playerTargetService.deletePlayerTarget(id);
-        return "redirect:/player-targets";  // Redirect to the list page
+        return "redirect:/player-targets";
     }
 }

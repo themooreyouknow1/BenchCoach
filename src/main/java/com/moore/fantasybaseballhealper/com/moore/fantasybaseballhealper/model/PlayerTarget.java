@@ -3,6 +3,13 @@ package com.moore.fantasybaseballhealper.com.moore.fantasybaseballhealper.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+/**
+ * The PlayerTarget class represents a player that a fantasy baseball manager targets during a draft.
+ * It includes the player's name, the expected draft round for the player, and any additional notes the manager may have.
+ * This class is annotated with JPA annotations to map it to a database table and is used to track targeted players
+ * during the draft process.
+ */
+
 @Entity
 public class PlayerTarget {
 
