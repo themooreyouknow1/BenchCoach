@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>2024 Pitching Stats</title>
+    <link rel="stylesheet" type="text/css" href="/css/pitching-stats-style.css">
+</head>
+<body>
+<div th:replace="~{header}"></div>
+<h1>2024 Pitching Stats</h1>
+<table id="pitching-stats-table">
+    <thead>
+    <tr>
+        <th th:onclick="|sortTable(0)|" class="sortable">Player</th>
+        <th th:onclick="|sortTable(1)|" class="sortable">Team</th>
+        <th th:onclick="|sortTable(2)|" class="sortable">Pos</th>
+        <th th:onclick="|sortTable(3)|" class="sortable">Age</th>
+        <th th:onclick="|sortTable(4)|" class="sortable">G</th>
+        <th th:onclick="|sortTable(5)|" class="sortable">GS</th>
+        <th th:onclick="|sortTable(6)|" class="sortable">CG</th>
+        <th th:onclick="|sortTable(7)|" class="sortable">SHO</th>
+        <th th:onclick="|sortTable(8)|" class="sortable">IP</th>
+        <th th:onclick="|sortTable(9)|" class="sortable">H</th>
+        <th th:onclick="|sortTable(10)|" class="sortable">ER</th>
+        <th th:onclick="|sortTable(11)|" class="sortable">K</th>
+        <th th:onclick="|sortTable(12)|" class="sortable">BB</th>
+        <th th:onclick="|sortTable(13)|" class="sortable">HR</th>
+        <th th:onclick="|sortTable(14)|" class="sortable">W</th>
+        <th th:onclick="|sortTable(15)|" class="sortable">L</th>
+        <th th:onclick="|sortTable(16)|" class="sortable">SV</th>
+        <th th:onclick="|sortTable(17)|" class="sortable">BS</th>
+        <th th:onclick="|sortTable(18)|" class="sortable">HLD</th>
+        <th th:onclick="|sortTable(19)|" class="sortable">ERA</th>
+        <th th:onclick="|sortTable(20)|" class="sortable">WHIP</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="pitcher : ${pitchers}">
+        <td th:text="${pitcher.player}"></td>
+        <td th:text="${pitcher.team}"></td>
+        <td th:text="${pitcher.pos}"></td>
+        <td th:text="${pitcher.age}"></td>
+        <td th:text="${pitcher.gamesPlayed}"></td>
+        <td th:text="${pitcher.gamesStarted}"></td>
+        <td th:text="${pitcher.completeGames}"></td>
+        <td th:text="${pitcher.shutouts}"></td>
+        <td th:text="${pitcher.inningsPitched}"></td>
+        <td th:text="${pitcher.hits}"></td>
+        <td th:text="${pitcher.earnedRuns}"></td>
+        <td th:text="${pitcher.strikeouts}"></td>
+        <td th:text="${pitcher.walks}"></td>
+        <td th:text="${pitcher.homeRuns}"></td>
+        <td th:text="${pitcher.wins}"></td>
+        <td th:text="${pitcher.losses}"></td>
+        <td th:text="${pitcher.saves}"></td>
+        <td th:text="${pitcher.blownSaves}"></td>
+        <td th:text="${pitcher.holds}"></td>
+        <td th:text="${pitcher.era}"></td>
+        <td th:text="${pitcher.whip}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<script>
+    function sortTable(columnIndex) {
+        const table = document.getElementById('pitching-stats-table');
+        const rows = Array.from(table.rows).slice(1); // Skip the header row
+        let isAscending = table.rows[0].cells[columnIndex].classList.contains('sort-asc');
+
+        // Sort rows based on column values
+        rows.sort((rowA, rowB) => {
+            const cellA = rowA.cells[columnIndex].textContent.trim();
+            const cellB = rowB.cells[columnIndex].textContent.trim();
+
+            // If the values are numbers, parse them
+            if (!isNaN(cellA) && !isNaN(cellB)) {
+                return isAscending ? parseFloat(cellA) - parseFloat(cellB) : parseFloat(cellB) - parseFloat(cellA);
+            } else {
+                // If the values are strings, compare alphabetically
+                return isAscending ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
+            }
+        });
+
+        // Reorder rows in table
+        rows.forEach(row => table.appendChild(row));
+
+        // Toggle the sort direction
+        const th = table.rows[0].cells[columnIndex];
+        th.classList.toggle('sort-asc', !isAscending);
+        th.classList.toggle('sort-desc', isAscending);
+    }
+</script>
+
+</body>
+</html>

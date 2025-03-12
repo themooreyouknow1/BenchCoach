@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create or Edit Player Target</title>
+    <link rel="stylesheet" type="text/css" href="/css/player-target-form-style.css">
+</head>
+<body>
+
+<div th:replace="~{header}"></div>
+
+<main>
+    <div class="form-wrapper">
+        <form th:action="@{${playerTarget.id != null ? '/player-targets/update/' + playerTarget.id : '/player-targets/save'}}"
+              th:object="${playerTarget}" method="post" class="container">
+
+            <h2 th:text="${playerTarget.id != null ? 'Edit Player Target' : 'Create Player Target'}"></h2>
+
+            <label for="playerName">Player Name</label>
+            <input type="text" th:field="*{playerName}" id="playerName" class="input" required>
+
+            <label for="expectedDraftRound">Expected Draft Round</label>
+            <input type="number" th:field="*{expectedDraftRound}" id="expectedDraftRound" class="input" required>
+
+            <label for="notes">Notes</label>
+            <textarea th:field="*{notes}" id="notes" class="input" required></textarea>
+
+            <button type="submit" class="submit-button">
+                <span th:text="${playerTarget.id != null ? 'Update Player Target' : 'Save Player Target'}"></span>
+            </button>
+
+            <h6><a th:href="@{/player-targets}">Back to Player Targets List</a></h6>
+        </form>
+    </div>
+</main>
+</body>
+</html>

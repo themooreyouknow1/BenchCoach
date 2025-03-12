@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Player Targets</title>
+    <link rel="stylesheet" type="text/css" href="/css/players-target-style.css">
+    <!-- Include FontAwesome for sorting icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+<div th:replace="~{header}"></div>
+<h1>Player Targets</h1>
+<table id="player-targets-table">
+    <thead>
+    <tr>
+        <th class="sortable" data-sort="playerName">Player Name</th>
+        <th class="sortable" data-sort="expectedDraftRound">Expected Draft Round</th>
+        <th class="sortable" data-sort="notes">Notes</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="playerTarget : ${playerTargets}">
+        <td th:text="${playerTarget.playerName}"></td>
+        <td th:text="${playerTarget.expectedDraftRound}"></td>
+        <td th:text="${playerTarget.notes}"></td>
+        <td>
+            <a th:href="@{/player-targets/edit/{id}(id=${playerTarget.id})}" class="update-button">Update</a>
+            <a th:href="@{/player-targets/delete/{id}(id=${playerTarget.id})}" class="delete-button" onclick="return confirm('Are you sure you want to delete this player target?');">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+    <a href="/player-targets/new" class="submit-button">Create New Player Target</a>
+
+</table>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Batter Projections</title>
+</head>
+<body>
+<h1>2025 Batter Projections</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Player</th>
+        <th>Team</th>
+        <th>Position</th>
+        <th>At Bats</th>
+        <th>Runs</th>
+        <th>Home Runs</th>
+        <th>RBI</th>
+        <th>Stolen Bases</th>
+        <th>AVG</th>
+        <th>OBP</th>
+        <th>Hits</th>
+        <th>2B</th>
+        <th>3B</th>
+        <th>Walks</th>
+        <th>Strikeouts</th>
+        <th>SLG</th>
+        <th>OPS</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="batter : ${batterProjections}">
+        <td th:text="${batter.player}"></td>
+        <td th:text="${batter.team}"></td>
+        <td th:text="${batter.pos}"></td>
+        <td th:text="${batter.atBats}"></td>
+        <td th:text="${batter.runs}"></td>
+        <td th:text="${batter.homeRuns}"></td>
+        <td th:text="${batter.rbis}"></td>
+        <td th:text="${batter.stolenBases}"></td>
+        <td th:text="${batter.avg}"></td>
+        <td th:text="${batter.obp}"></td>
+        <td th:text="${batter.hits}"></td>
+        <td th:text="${batter.doubles}"></td>
+        <td th:text="${batter.triples}"></td>
+        <td th:text="${batter.walks}"></td>
+        <td th:text="${batter.strikeouts}"></td>
+        <td th:text="${batter.slg}"></td>
+        <td th:text="${batter.ops}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

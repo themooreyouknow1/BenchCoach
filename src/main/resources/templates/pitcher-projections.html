@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Pitcher Projections</title>
+</head>
+<body>
+<h1>Pitcher Projections</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Player</th>
+        <th>Team</th>
+        <th>Position</th>
+        <th>Innings Pitched</th>
+        <th>Strikeouts</th>
+        <th>Wins</th>
+        <th>Saves</th>
+        <th>ERA</th>
+        <th>WHIP</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Loop through the list of pitcher projections -->
+    <tr th:each="pitcher : ${pitcherProjections}">
+        <td th:text="${pitcher.player}"></td>
+        <td th:text="${pitcher.team}"></td>
+        <td th:text="${pitcher.pos}"></td>
+        <td th:text="${pitcher.inningsPitched}"></td>
+        <td th:text="${pitcher.strikeouts}"></td>
+        <td th:text="${pitcher.wins}"></td>
+        <td th:text="${pitcher.saves}"></td>
+        <td th:text="${pitcher.era}"></td>
+        <td th:text="${pitcher.whip}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

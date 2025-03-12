@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>2024 Batting Stats</title>
+    <link rel="stylesheet" type="text/css" href="/css/batting-stats-style.css">
+</head>
+<body>
+<div th:replace="~{header}"></div>
+<h1>2024 Batting Stats</h1>
+<table id="batting-stats-table">
+    <thead>
+    <tr>
+        <th th:onclick="|sortTable(0)|" class="sortable">Player</th>
+        <th th:onclick="|sortTable(1)|" class="sortable">Team</th>
+        <th th:onclick="|sortTable(2)|" class="sortable">Pos</th>
+        <th th:onclick="|sortTable(3)|" class="sortable">Age</th>
+        <th th:onclick="|sortTable(4)|" class="sortable">G</th>
+        <th th:onclick="|sortTable(5)|" class="sortable">AB</th>
+        <th th:onclick="|sortTable(6)|" class="sortable">R</th>
+        <th th:onclick="|sortTable(7)|" class="sortable">H</th>
+        <th th:onclick="|sortTable(8)|" class="sortable">2B</th>
+        <th th:onclick="|sortTable(9)|" class="sortable">3B</th>
+        <th th:onclick="|sortTable(10)|" class="sortable">HR</th>
+        <th th:onclick="|sortTable(11)|" class="sortable">RBI</th>
+        <th th:onclick="|sortTable(12)|" class="sortable">SB</th>
+        <th th:onclick="|sortTable(13)|" class="sortable">CS</th>
+        <th th:onclick="|sortTable(14)|" class="sortable">BB</th>
+        <th th:onclick="|sortTable(15)|" class="sortable">SO</th>
+        <th th:onclick="|sortTable(16)|" class="sortable">SH</th>
+        <th th:onclick="|sortTable(17)|" class="sortable">SF</th>
+        <th th:onclick="|sortTable(18)|" class="sortable">HBP</th>
+        <th th:onclick="|sortTable(19)|" class="sortable">AVG</th>
+        <th th:onclick="|sortTable(20)|" class="sortable">OBP</th>
+        <th th:onclick="|sortTable(21)|" class="sortable">SLG</th>
+        <th th:onclick="|sortTable(22)|" class="sortable">OPS</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="batter : ${batters}">
+        <td th:text="${batter.player}"></td>
+        <td th:text="${batter.team}"></td>
+        <td th:text="${batter.pos}"></td>
+        <td th:text="${batter.age}"></td>
+        <td th:text="${batter.gamesPlayed}"></td>
+        <td th:text="${batter.atBats}"></td>
+        <td th:text="${batter.runs}"></td>
+        <td th:text="${batter.hits}"></td>
+        <td th:text="${batter.doubles}"></td>
+        <td th:text="${batter.triples}"></td>
+        <td th:text="${batter.homeRuns}"></td>
+        <td th:text="${batter.rbis}"></td>
+        <td th:text="${batter.stolenBases}"></td>
+        <td th:text="${batter.caughtStealing}"></td>
+        <td th:text="${batter.walks}"></td>
+        <td th:text="${batter.strikeouts}"></td>
+        <td th:text="${batter.sacrificeHits}"></td>
+        <td th:text="${batter.sacrificeFlies}"></td>
+        <td th:text="${batter.hitByPitch}"></td>
+        <td th:text="${batter.avg}"></td>
+        <td th:text="${batter.obp}"></td>
+        <td th:text="${batter.slg}"></td>
+        <td th:text="${batter.ops}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<script>
+    function sortTable(columnIndex) {
+        const table = document.getElementById('batting-stats-table');
+        const rows = Array.from(table.rows).slice(1); // Skip the header row
+        let isAscending = table.rows[0].cells[columnIndex].classList.contains('sort-asc');
+
+        // Sort rows based on column values
+        rows.sort((rowA, rowB) => {
+            const cellA = rowA.cells[columnIndex].textContent.trim();
+            const cellB = rowB.cells[columnIndex].textContent.trim();
+
+            // If the values are numbers, parse them
+            if (!isNaN(cellA) && !isNaN(cellB)) {
+                return isAscending ? parseFloat(cellA) - parseFloat(cellB) : parseFloat(cellB) - parseFloat(cellA);
+            } else {
+                // If the values are strings, compare alphabetically
+                return isAscending ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
+            }
+        });
+
+        // Reorder rows in table
+        rows.forEach(row => table.appendChild(row));
+
+        // Toggle the sort direction
+        const th = table.rows[0].cells[columnIndex];
+        th.classList.toggle('sort-asc', !isAscending);
+        th.classList.toggle('sort-desc', isAscending);
+    }
+</script>
+
+</body>
+</html>

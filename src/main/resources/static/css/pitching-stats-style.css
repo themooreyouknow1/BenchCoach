@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic page styling */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* The main container using grid layout */
+main {
+    display: grid;
+    grid-template-areas:
+                "header header header header"
+                "main main main main"
+                "links links links links"
+                "footer footer footer footer";
+    grid-template-columns: 1fr 1fr 1fr 1fr; /* 4 equal columns */
+    grid-template-rows: auto 1fr auto 100px; /* Adjust row sizes: header, content, links, footer */
+    gap: 10px;
+    min-height: 100vh; /* Ensure it takes up the full viewport height */
+    padding: 0 20px;
+}
+
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #b2832f;
+    color: white;
+    cursor: pointer;
+}
+
+th.sort-asc::after {
+    content: "\f0de"; /* Font Awesome icon for up arrow */
+    font-family: FontAwesome;
+}
+
+th.sort-desc::after {
+    content: "\f0dd"; /* Font Awesome icon for down arrow */
+    font-family: FontAwesome;
+}
+
+/* Footer styles */
+footer {
+    grid-area: footer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: black solid 3px;
+    background-color: #b2832f;
+    padding: 10px;
+}
+
+/* Links styling */
+a {
+    text-decoration: none;
+    color: #b2832f;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}

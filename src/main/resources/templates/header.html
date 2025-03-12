@@ -1,0 +1,69 @@
+<!-- header.html (this will be a fragment for the navbar) -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/header_style.css}" />
+    <style>
+        header {background-image: url(static/imgs/baseballBat.png);}
+    </style>
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+            const hamburgerDropdown = document.querySelector('.hamburger-icon .dropdown-content');
+            const profileDropdown = document.querySelector('.login-icon .dropdown-content');
+
+            // Adjust hamburger dropdown position based on screen size
+            if (hamburgerDropdown) {
+                const hamburgerIcon = document.querySelector('.hamburger-icon');
+                const rect = hamburgerIcon.getBoundingClientRect();
+                const screenWidth = window.innerWidth;
+
+                if (rect.right + hamburgerDropdown.offsetWidth > screenWidth) {
+                    hamburgerDropdown.classList.add('adjust-dropdown-left');
+                }
+            }
+
+            if (profileDropdown) {
+                const profileIcon = document.querySelector('.login-icon');
+                const rect = profileIcon.getBoundingClientRect();
+                const screenWidth = window.innerWidth;
+
+                if (rect.right + profileDropdown.offsetWidth > screenWidth) {
+                    profileDropdown.classList.add('adjust-dropdown-left');
+                }
+            }
+        });
+
+        window.addEventListener('resize', function () {
+            location.reload();
+        });
+    </script>
+
+</head>
+<body>
+<header>
+    <div class="hamburger-icon">
+        <img id="threelines" th:src="@{/imgs/threeLinesIcon.png}" alt="Menu">
+        <div class="dropdown-content">
+            <a th:href="@{/batting-stats}">2024 Batting Stats</a>
+            <a th:href="@{/pitching-stats}">2024 Pitching Stats</a>
+        </div>
+    </div>
+    <div class="logo">
+        <a th:href="@{/home}">
+            <img th:src="@{/imgs/thebenchcoachlogo.png}" alt="logo">
+        </a>
+
+    </div>
+    <div class="login-icon">
+        <img id="profile" th:src="@{/imgs/profile_icon.png}" alt="Profile">
+        <div class="dropdown-content">
+            <a href="">Profile</a>
+            <a th:href="@{/registration}">Register</a>
+            <a th:href="@{/login}">Log out</a>
+        </div>
+    </div>
+</header>
+</body>
+</html>
