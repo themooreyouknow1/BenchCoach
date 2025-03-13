@@ -4,13 +4,11 @@
     box-sizing: border-box;
 }
 
-/* Basic page styling */
 html, body {
     height: 100%;
     margin: 0;
 }
 
-/* The main container using grid layout */
 main {
     display: grid;
     grid-template-areas:
@@ -18,15 +16,15 @@ main {
                 "main main main main"
                 "links links links links"
                 "footer footer footer footer";
-    grid-template-columns: 1fr 1fr 1fr 1fr; /* 4 equal columns */
-    grid-template-rows: auto 1fr auto 100px; /* Adjust row sizes: header, content, links, footer */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto 1fr auto 100px;
     gap: 10px;
-    min-height: 100vh; /* Ensure it takes up the full viewport height */
+    min-height: 100vh;
     padding: 0 20px;
 }
 
 
-/* Table styling */
+
 table {
     width: 100%;
     border-collapse: collapse;
