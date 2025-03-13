@@ -1562,3 +1562,84 @@ org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property o
 2025-03-13T07:21:59.928-07:00  INFO 44646 --- [com.moore.fantasybaseballhealper] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-03-13T07:21:59.929-07:00  INFO 44646 --- [com.moore.fantasybaseballhealper] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
 2025-03-13T07:21:59.934-07:00  INFO 44646 --- [com.moore.fantasybaseballhealper] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2025-03-13T07:30:32.098-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [restartedMain] c.m.f.c.m.f.Application                  : Starting Application using Java 23.0.1 with PID 45616 (/Users/jacobmoore/Downloads/com.moore.fantasybaseballhealper-master/target/classes started by jacobmoore in /Users/jacobmoore/Downloads/com.moore.fantasybaseballhealper-master)
+2025-03-13T07:30:32.098-07:00 DEBUG 45616 --- [com.moore.fantasybaseballhealper] [restartedMain] c.m.f.c.m.f.Application                  : Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-03-13T07:30:32.099-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [restartedMain] c.m.f.c.m.f.Application                  : No active profile set, falling back to 1 default profile: "default"
+2025-03-13T07:30:32.117-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-13T07:30:32.117-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-13T07:30:32.328-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-13T07:30:32.351-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 6 JPA repository interfaces.
+2025-03-13T07:30:32.515-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-13T07:30:32.519-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-13T07:30:32.520-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-03-13T07:30:32.531-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-13T07:30:32.531-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 414 ms
+2025-03-13T07:30:32.590-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-13T07:30:32.611-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-03-13T07:30:32.622-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-03-13T07:30:32.711-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-13T07:30:32.721-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-13T07:30:32.850-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4d7d76ae
+2025-03-13T07:30:32.850-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-13T07:30:32.868-07:00  WARN 45616 --- [com.moore.fantasybaseballhealper] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-13T07:30:32.869-07:00  WARN 45616 --- [com.moore.fantasybaseballhealper] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-13T07:30:32.874-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-03-13T07:30:33.177-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-13T07:30:33.200-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-13T07:30:33.339-07:00  WARN 45616 --- [com.moore.fantasybaseballhealper] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-13T07:30:33.461-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-03-13T07:30:33.475-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-03-13T07:30:33.478-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [restartedMain] c.m.f.c.m.f.Application                  : Started Application in 1.516 seconds (process running for 1.748)
+2025-03-13T07:30:37.885-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-13T07:30:37.885-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-13T07:30:37.886-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-03-13T07:39:59.542-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-03-13T07:39:59.544-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-03-13T07:39:59.546-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-03-13T07:39:59.548-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-03-13T07:39:59.550-07:00  INFO 45616 --- [com.moore.fantasybaseballhealper] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-03-13T07:40:02.841-07:00  INFO 45761 --- [com.moore.fantasybaseballhealper] [restartedMain] c.m.f.c.m.f.Application                  : Starting Application using Java 23.0.1 with PID 45761 (/Users/jacobmoore/Downloads/com.moore.fantasybaseballhealper-master/target/classes started by jacobmoore in /Users/jacobmoore/Downloads/com.moore.fantasybaseballhealper-master)
+2025-03-13T07:40:02.841-07:00 DEBUG 45761 --- [com.moore.fantasybaseballhealper] [restartedMain] c.m.f.c.m.f.Application                  : Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-03-13T07:40:02.842-07:00  INFO 45761 --- [com.moore.fantasybaseballhealper] [restartedMain] c.m.f.c.m.f.Application                  : No active profile set, falling back to 1 default profile: "default"
+2025-03-13T07:40:02.859-07:00  INFO 45761 --- [com.moore.fantasybaseballhealper] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-03-13T07:40:02.859-07:00  INFO 45761 --- [com.moore.fantasybaseballhealper] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-03-13T07:40:03.039-07:00  INFO 45761 --- [com.moore.fantasybaseballhealper] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-13T07:40:03.061-07:00  INFO 45761 --- [com.moore.fantasybaseballhealper] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 6 JPA repository interfaces.
+2025-03-13T07:40:03.221-07:00  INFO 45761 --- [com.moore.fantasybaseballhealper] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-13T07:40:03.226-07:00  INFO 45761 --- [com.moore.fantasybaseballhealper] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-13T07:40:03.226-07:00  INFO 45761 --- [com.moore.fantasybaseballhealper] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-03-13T07:40:03.236-07:00  INFO 45761 --- [com.moore.fantasybaseballhealper] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-13T07:40:03.236-07:00  INFO 45761 --- [com.moore.fantasybaseballhealper] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 376 ms
+2025-03-13T07:40:03.293-07:00  INFO 45761 --- [com.moore.fantasybaseballhealper] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-13T07:40:03.307-07:00  INFO 45761 --- [com.moore.fantasybaseballhealper] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-03-13T07:40:03.315-07:00  INFO 45761 --- [com.moore.fantasybaseballhealper] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-03-13T07:40:03.391-07:00  INFO 45761 --- [com.moore.fantasybaseballhealper] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-13T07:40:03.399-07:00  INFO 45761 --- [com.moore.fantasybaseballhealper] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-13T07:40:03.523-07:00  INFO 45761 --- [com.moore.fantasybaseballhealper] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@464dfcd2
+2025-03-13T07:40:03.523-07:00  INFO 45761 --- [com.moore.fantasybaseballhealper] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-13T07:40:03.541-07:00  WARN 45761 --- [com.moore.fantasybaseballhealper] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-03-13T07:40:03.541-07:00  WARN 45761 --- [com.moore.fantasybaseballhealper] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-03-13T07:40:03.547-07:00  INFO 45761 --- [com.moore.fantasybaseballhealper] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-03-13T07:40:03.833-07:00  INFO 45761 --- [com.moore.fantasybaseballhealper] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-13T07:40:03.857-07:00  INFO 45761 --- [com.moore.fantasybaseballhealper] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-13T07:40:03.993-07:00  WARN 45761 --- [com.moore.fantasybaseballhealper] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-13T07:40:04.112-07:00  INFO 45761 --- [com.moore.fantasybaseballhealper] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-03-13T07:40:04.127-07:00  INFO 45761 --- [com.moore.fantasybaseballhealper] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-03-13T07:40:04.131-07:00  INFO 45761 --- [com.moore.fantasybaseballhealper] [restartedMain] c.m.f.c.m.f.Application                  : Started Application in 1.423 seconds (process running for 1.644)
+2025-03-13T07:40:07.365-07:00  INFO 45761 --- [com.moore.fantasybaseballhealper] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-13T07:40:07.366-07:00  INFO 45761 --- [com.moore.fantasybaseballhealper] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-03-13T07:40:07.367-07:00  INFO 45761 --- [com.moore.fantasybaseballhealper] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
