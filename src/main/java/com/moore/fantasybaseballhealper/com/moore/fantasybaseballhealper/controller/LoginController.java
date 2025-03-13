@@ -3,10 +3,13 @@ package com.moore.fantasybaseballhealper.com.moore.fantasybaseballhealper.contro
 import com.moore.fantasybaseballhealper.com.moore.fantasybaseballhealper.model.User;
 import com.moore.fantasybaseballhealper.com.moore.fantasybaseballhealper.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class LoginController {
@@ -14,21 +17,28 @@ public class LoginController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping("/login")
-    public String showLoginForm() {
-        return "login";
-    }
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
 
     @PostMapping("/login")
-    public String login(User user, Model model) {
-        User dbUser = userRepository.findByEmail(user.getEmail());
+    public String loginUser(@RequestParam String username, @RequestParam String password, Model model) {
+        System.out.println("Received username: " + username);
+        System.out.println("Received password: " + password);
 
-        if (dbUser != null && dbUser.getPassword().equals(user.getPassword())) {
-            model.addAttribute("user", dbUser);
+        User user = userRepository.findByEmail(username);
+        if (user != null && passwordEncoder.matches(password, user.getPassword())) {
             return "redirect:/home";
+        } else {
+            model.addAttribute("error", "Invalid username or password");
+            return "login";
         }
+    }
 
-        model.addAttribute("error", "Invalid username or password");
+
+    @GetMapping("/login")
+    public String loginPage() {
         return "login";
     }
+
 }
