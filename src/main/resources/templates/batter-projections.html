@@ -2,29 +2,31 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Batter Projections</title>
+    <link rel="stylesheet" type="text/css" href="/css/batting-stats-style.css">
 </head>
 <body>
+<div th:replace="~{header}"></div>
 <h1>2025 Batter Projections</h1>
-<table border="1">
+<table id="batting-stats-table">
     <thead>
     <tr>
-        <th>Player</th>
-        <th>Team</th>
-        <th>Position</th>
-        <th>At Bats</th>
-        <th>Runs</th>
-        <th>Home Runs</th>
-        <th>RBI</th>
-        <th>Stolen Bases</th>
-        <th>AVG</th>
-        <th>OBP</th>
-        <th>Hits</th>
-        <th>2B</th>
-        <th>3B</th>
-        <th>Walks</th>
-        <th>Strikeouts</th>
-        <th>SLG</th>
-        <th>OPS</th>
+        <th th:onclick="|sortTable(0)|" class="sortable">Player</th>
+        <th th:onclick="|sortTable(1)|" class="sortable">Team</th>
+        <th th:onclick="|sortTable(2)|" class="sortable">Position</th>
+        <th th:onclick="|sortTable(3)|" class="sortable">At Bats</th>
+        <th th:onclick="|sortTable(4)|" class="sortable">Runs</th>
+        <th th:onclick="|sortTable(5)|" class="sortable">Home Runs</th>
+        <th th:onclick="|sortTable(6)|" class="sortable">RBI</th>
+        <th th:onclick="|sortTable(7)|" class="sortable">Stolen Bases</th>
+        <th th:onclick="|sortTable(8)|" class="sortable">AVG</th>
+        <th th:onclick="|sortTable(9)|" class="sortable">OBP</th>
+        <th th:onclick="|sortTable(10)|" class="sortable">Hits</th>
+        <th th:onclick="|sortTable(11)|" class="sortable">2B</th>
+        <th th:onclick="|sortTable(12)|" class="sortable">3B</th>
+        <th th:onclick="|sortTable(13)|" class="sortable">Walks</th>
+        <th th:onclick="|sortTable(14)|" class="sortable">Strikeouts</th>
+        <th th:onclick="|sortTable(15)|" class="sortable">SLG</th>
+        <th th:onclick="|sortTable(16)|" class="sortable">OPS</th>
     </tr>
     </thead>
     <tbody>
@@ -49,5 +51,30 @@
     </tr>
     </tbody>
 </table>
+
+<script>
+    function sortTable(columnIndex) {
+        const table = document.getElementById('batting-stats-table');
+        const rows = Array.from(table.rows).slice(1); //no header
+        let isAscending = table.rows[0].cells[columnIndex].classList.contains('sort-asc');
+
+        rows.sort((rowA, rowB) => {
+            const cellA = rowA.cells[columnIndex].textContent.trim();
+            const cellB = rowB.cells[columnIndex].textContent.trim();
+
+            if (!isNaN(cellA) && !isNaN(cellB)) {
+                return isAscending ? parseFloat(cellA) - parseFloat(cellB) : parseFloat(cellB) - parseFloat(cellA);
+            } else {
+                return isAscending ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
+            }
+        });
+
+        rows.forEach(row => table.appendChild(row));
+
+        const th = table.rows[0].cells[columnIndex];
+        th.classList.toggle('sort-asc', !isAscending);
+        th.classList.toggle('sort-desc', isAscending);
+    }
+</script>
 </body>
 </html>

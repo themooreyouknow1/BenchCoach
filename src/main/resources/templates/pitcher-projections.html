@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Pitcher Projections</title>
+    <title>2025 Pitcher Projections</title>
+    <link rel="stylesheet" type="text/css" href="/css/pitching-stats-style.css">
 </head>
 <body>
 <h1>Pitcher Projections</h1>
-<table border="1">
+<div th:replace="~{header}"></div>
+<table id="pitching-stats-table">
     <thead>
     <tr>
-        <th>Player</th>
-        <th>Team</th>
-        <th>Position</th>
-        <th>Innings Pitched</th>
-        <th>Strikeouts</th>
-        <th>Wins</th>
-        <th>Saves</th>
-        <th>ERA</th>
-        <th>WHIP</th>
+        <th th:onclick="|sortTable(0)|" class="sortable">Player</th>
+        <th th:onclick="|sortTable(1)|" class="sortable">Team</th>
+        <th th:onclick="|sortTable(2)|" class="sortable">Position</th>
+        <th th:onclick="|sortTable(3)|" class="sortable">Innings Pitched</th>
+        <th th:onclick="|sortTable(4)|" class="sortable">Strikeouts</th>
+        <th th:onclick="|sortTable(5)|" class="sortable">Wins</th>
+        <th th:onclick="|sortTable(6)|" class="sortable">Saves</th>
+        <th th:onclick="|sortTable(7)|" class="sortable">ERA</th>
+        <th th:onclick="|sortTable(8)|" class="sortable">WHIP</th>
     </tr>
     </thead>
     <tbody>
-    <!-- Loop through the list of pitcher projections -->
     <tr th:each="pitcher : ${pitcherProjections}">
         <td th:text="${pitcher.player}"></td>
         <td th:text="${pitcher.team}"></td>
@@ -34,5 +35,31 @@
     </tr>
     </tbody>
 </table>
+
+<script>
+    function sortTable(columnIndex) {
+        const table = document.getElementById('pitching-stats-table');
+        const rows = Array.from(table.rows).slice(1);
+        let isAscending = table.rows[0].cells[columnIndex].classList.contains('sort-asc');
+
+        rows.sort((rowA, rowB) => {
+            const cellA = rowA.cells[columnIndex].textContent.trim();
+            const cellB = rowB.cells[columnIndex].textContent.trim();
+
+            if (!isNaN(cellA) && !isNaN(cellB)) {
+                return isAscending ? parseFloat(cellA) - parseFloat(cellB) : parseFloat(cellB) - parseFloat(cellA);
+            } else {
+                return isAscending ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
+            }
+        });
+
+        rows.forEach(row => table.appendChild(row));
+
+        const th = table.rows[0].cells[columnIndex];
+        th.classList.toggle('sort-asc', !isAscending);
+        th.classList.toggle('sort-desc', isAscending);
+    }
+</script>
+
 </body>
 </html>

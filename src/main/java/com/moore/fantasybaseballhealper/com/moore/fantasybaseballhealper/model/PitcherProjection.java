@@ -1,35 +1,35 @@
 package com.moore.fantasybaseballhealper.com.moore.fantasybaseballhealper.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "2025_pitcher_projections")
+@Table(name = "pitcher_projections")
 public class PitcherProjection {
 
     @Id
-    private Integer pitcherId; // Use pitcher_id as primary key
-
+    @Column(unique = true, nullable = false)
     private String player;
+    @Column(name = "Team")
     private String team;
+    @Column(name = "Positions")
     private String pos;
+    @Column(name = "IP")
     private Integer inningsPitched;
+    @Column(name = "K")
     private Integer strikeouts;
+    @Column(name = "W")
     private Integer wins;
+    @Column(name = "SV")
     private Integer saves;
+    @Column(name = "ERA")
     private Double era;
+    @Column(name = "WHIP")
     private Double whip;
 
-    // Getters and Setters
 
-    public Integer getPitcherId() {
-        return pitcherId;
-    }
-
-    public void setPitcherId(Integer pitcherId) {
-        this.pitcherId = pitcherId;
-    }
 
     public String getPlayer() {
         return player;

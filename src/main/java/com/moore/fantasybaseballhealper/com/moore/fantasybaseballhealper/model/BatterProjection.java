@@ -1,19 +1,17 @@
 package com.moore.fantasybaseballhealper.com.moore.fantasybaseballhealper.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "2025_hitter_projections")
+@Table(name = "batter_projections")
 public class BatterProjection {
 
     @Id
-    private Integer batterId;  // Use batter_id as primary key
-
+    @Column(unique = true, nullable = false)
     private String player;
+    @Column(name = "Team")
     private String team;
+    @Column(name = "Positions")
     private String pos;
 
     @Column(name = "AB")
@@ -45,13 +43,6 @@ public class BatterProjection {
     @Column(name = "OPS")
     private double ops;
 
-    public Integer getBatterId() {
-        return batterId;
-    }
-
-    public void setBatterId(Integer batterId) {
-        this.batterId = batterId;
-    }
 
     public String getPlayer() {
         return player;

@@ -68,7 +68,7 @@
 <script>
     function sortTable(columnIndex) {
         const table = document.getElementById('batting-stats-table');
-        const rows = Array.from(table.rows).slice(1); // Skip the header row
+        const rows = Array.from(table.rows).slice(1);
         let isAscending = table.rows[0].cells[columnIndex].classList.contains('sort-asc');
 
         // Sort rows based on column values
@@ -76,19 +76,14 @@
             const cellA = rowA.cells[columnIndex].textContent.trim();
             const cellB = rowB.cells[columnIndex].textContent.trim();
 
-            // If the values are numbers, parse them
             if (!isNaN(cellA) && !isNaN(cellB)) {
                 return isAscending ? parseFloat(cellA) - parseFloat(cellB) : parseFloat(cellB) - parseFloat(cellA);
             } else {
-                // If the values are strings, compare alphabetically
                 return isAscending ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
             }
         });
 
-        // Reorder rows in table
         rows.forEach(row => table.appendChild(row));
-
-        // Toggle the sort direction
         const th = table.rows[0].cells[columnIndex];
         th.classList.toggle('sort-asc', !isAscending);
         th.classList.toggle('sort-desc', isAscending);
