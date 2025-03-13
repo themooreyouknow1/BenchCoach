@@ -13,6 +13,11 @@
             <img th:src="@{imgs/thebenchcoachlogo.png}" alt="logo">
         </div>
         <h2>Join the team</h2>
+
+        <div th:if="${error}" style="color: red;">
+            <p th:text="${error}"></p>
+        </div>
+
         <input type="text" class="input" name="fname" placeholder="First Name: " required>
         <input type="text" class="input" name="vname" placeholder="Last Name: " required>
         <input type="email" class="input" name="username" placeholder="Username/Email: " required>

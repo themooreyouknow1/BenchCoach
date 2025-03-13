@@ -1,11 +1,11 @@
-/* Ensure the html and body stretch to full height */
+
 @font-face{
     font-family: "Alameda";
-    src: url(../fonts/AlamedaScript.otf);
+    src: url('static/fonts/collegeb.ttf') format('truetype');
 }
 @font-face {
     font-family: "College";
-    src: url(../fonts/collegeb.ttf);
+    src: url('static/fonts/collegeb.ttf') format('truetype');
 }
 
 html, body {
@@ -80,8 +80,12 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center; /* Ensures the text is centered */
+    text-align: center;
     margin: 0;
     padding: 0;
+    font-family: 'Helvetica';
+}
+#mainheadline{
+    font-family: 'Helvetica';
 }
 

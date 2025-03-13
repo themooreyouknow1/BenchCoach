@@ -1,13 +1,13 @@
 /* General styles for the header */
 header {
-    background-image: url(static/imgs/baseballBat.png);
-    background-color: #b2832f;
     background-size: cover;
     background-position: center;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    background-image: url('/imgs/baseballBat.png')!important;
+    background-color: #b2832f;
 }
 
 .hamburger-icon {
