@@ -18,7 +18,6 @@ public class PitcherProjectionService {
     }
 
     public List<PitcherProjection> getAllPitcherProjections() {
-        // Retrieve data from the repository
         List<PitcherProjection> pitcherProjections = pitcherProjectionRepository.findAll();
         System.out.println("Retrieved Pitcher Projections: " + pitcherProjections);  // Logging for debugging
         return pitcherProjections;

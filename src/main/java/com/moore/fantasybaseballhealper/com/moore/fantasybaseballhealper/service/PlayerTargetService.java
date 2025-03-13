@@ -19,20 +19,20 @@ public class PlayerTargetService {
     @Autowired
     private PlayerTargetRepository playerTargetRepository;
 
-    //returns all player targets
+    //get all
     public List<PlayerTarget> getAllPlayerTargets() {
         return playerTargetRepository.findAll();
     }
 
-    //saves a new player to the database
+    //save player
     public PlayerTarget savePlayerTarget(PlayerTarget playerTarget) {
         return playerTargetRepository.save(playerTarget);
     }
-    //deletes a player from the database
+    //deletes a player
     public void deletePlayerTarget(Long id) {
         playerTargetRepository.deleteById(id);
     }
-    //retrieves a player target by id
+    //get player by id
     public PlayerTarget getPlayerTargetById(Long id) {
         return playerTargetRepository.findById(id).orElse(null);
     }

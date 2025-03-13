@@ -38,7 +38,7 @@ public class PlayerTargetRepositoryTest {
         playerTarget.setNotes("Notes for Player 1");
     }
 
-    // Test for findAll() method
+    // Test findAll()
     @Test
     void testFindAllPlayerTargets() {
         List<PlayerTarget> playerTargets = Arrays.asList(playerTarget);
@@ -54,7 +54,7 @@ public class PlayerTargetRepositoryTest {
         verify(playerTargetRepository, times(1)).findAll();
     }
 
-    // Test for save() method
+    // Test save()
     @Test
     void testSavePlayerTarget() {
         when(playerTargetRepository.save(playerTarget)).thenReturn(playerTarget);
@@ -66,7 +66,7 @@ public class PlayerTargetRepositoryTest {
         verify(playerTargetRepository, times(1)).save(playerTarget);
     }
 
-    // Test for findById() method
+    // Test findById()
     @Test
     void testFindPlayerTargetById() {
         when(playerTargetRepository.findById(1L)).thenReturn(Optional.of(playerTarget));
@@ -78,7 +78,7 @@ public class PlayerTargetRepositoryTest {
         verify(playerTargetRepository, times(1)).findById(1L);
     }
 
-    // Test for deleteById() method
+    // Test deleteById()
     @Test
     void testDeletePlayerTarget() {
         doNothing().when(playerTargetRepository).deleteById(1L);

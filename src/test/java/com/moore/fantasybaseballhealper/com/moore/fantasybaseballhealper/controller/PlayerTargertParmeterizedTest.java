@@ -32,7 +32,7 @@ class PlayerTargetParameterizedTest {
         mockMvc = MockMvcBuilders.standaloneSetup(playerTargetController).build();
     }
 
-    // Parameterized test for saving player targets with different inputs
+    // Test for saving players with different inputs
     @ParameterizedTest
     @CsvSource({
             "Player 1, 1, Some notes",
@@ -40,16 +40,16 @@ class PlayerTargetParameterizedTest {
             "Player 3, 5, Notes for Player 3"
     })
     void testSavePlayerTargetWithDifferentInputs(String playerName, int expectedDraftRound, String notes) throws Exception {
-        // Arrange: Create a PlayerTarget object with the parameters
+        // Create a Player with the parameters
         PlayerTarget playerTarget = new PlayerTarget();
         playerTarget.setPlayerName(playerName);
         playerTarget.setExpectedDraftRound(expectedDraftRound);
         playerTarget.setNotes(notes);
 
-        // Mock the service call
+        // Mock service call
         when(playerTargetService.savePlayerTarget(any(PlayerTarget.class))).thenReturn(playerTarget);
 
-        // Act & Assert: Perform the POST request and check for correct behavior
+        // Perform the POST request
         mockMvc.perform(MockMvcRequestBuilders.post("/player-targets/save")
                         .param("playerName", playerName)
                         .param("expectedDraftRound", String.valueOf(expectedDraftRound))
@@ -57,7 +57,7 @@ class PlayerTargetParameterizedTest {
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/player-targets"));
 
-        // Verify that savePlayerTarget was called with the correct PlayerTarget
+        // check save
         verify(playerTargetService, times(1)).savePlayerTarget(any(PlayerTarget.class));
     }
 }

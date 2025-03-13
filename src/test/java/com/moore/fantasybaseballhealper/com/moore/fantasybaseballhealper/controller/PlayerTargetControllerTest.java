@@ -31,7 +31,6 @@ class PlayerTargetControllerTest {
 
     @BeforeEach
     void setUp() {
-        // Initialize mocks
         MockitoAnnotations.openMocks(this);
         mockMvc = MockMvcBuilders.standaloneSetup(playerTargetController).build();
     }
@@ -39,7 +38,6 @@ class PlayerTargetControllerTest {
 
     @Test
     void testShowCreatePlayerTargetForm() throws Exception {
-        // Act & Assert
         mockMvc.perform(get("/player-targets/new"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("player-target-form"))
@@ -56,7 +54,7 @@ class PlayerTargetControllerTest {
 
         when(playerTargetService.savePlayerTarget(any(PlayerTarget.class))).thenReturn(playerTarget);
 
-        // Act & Assert
+        // Assert
         mockMvc.perform(post("/player-targets/save")
                         .param("playerName", "Player 1")
                         .param("expectedDraftRound", "1")
@@ -75,7 +73,7 @@ class PlayerTargetControllerTest {
 
         when(playerTargetService.getPlayerTargetById(1L)).thenReturn(playerTarget);
 
-        // Act & Assert
+        // Assert
         mockMvc.perform(get("/player-targets/edit/{id}", 1L))
                 .andExpect(status().isOk())
                 .andExpect(view().name("player-target-form"))
@@ -93,7 +91,7 @@ class PlayerTargetControllerTest {
 
         when(playerTargetService.savePlayerTarget(any(PlayerTarget.class))).thenReturn(playerTarget);
 
-        // Act & Assert
+        // Assert
         mockMvc.perform(post("/player-targets/update/{id}", 1L)
                         .param("playerName", "Player 1")
                         .param("expectedDraftRound", "3")
@@ -104,7 +102,7 @@ class PlayerTargetControllerTest {
 
     @Test
     void testDeletePlayerTarget() throws Exception {
-        // Act & Assert
+        // Assert
         mockMvc.perform(get("/player-targets/delete/{id}", 1L))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/player-targets"));

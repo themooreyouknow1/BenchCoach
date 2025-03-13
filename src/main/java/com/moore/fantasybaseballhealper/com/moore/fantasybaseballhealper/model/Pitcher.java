@@ -57,9 +57,9 @@ public class Pitcher {
     @Column(name = "WHIP")
     private double whip;
 
-    // Sleeper and Bust flags
-    private boolean sleeper;
-    private boolean bust;
+
+//    private boolean sleeper;
+//    private boolean bust;
 
     public Integer getPitcherId() {
         return pitcherId;
@@ -229,21 +229,21 @@ public class Pitcher {
         this.whip = whip;
     }
 
-    public boolean isSleeper() {
-        return sleeper;
-    }
-
-    public void setSleeper(boolean sleeper) {
-        this.sleeper = sleeper;
-    }
-
-    public boolean isBust() {
-        return bust;
-    }
-
-    public void setBust(boolean bust) {
-        this.bust = bust;
-    }
+//    public boolean isSleeper() {
+//        return sleeper;
+//    }
+//
+//    public void setSleeper(boolean sleeper) {
+//        this.sleeper = sleeper;
+//    }
+//
+//    public boolean isBust() {
+//        return bust;
+//    }
+//
+//    public void setBust(boolean bust) {
+//        this.bust = bust;
+//    }
 
     public String getPos() {
         return pos;

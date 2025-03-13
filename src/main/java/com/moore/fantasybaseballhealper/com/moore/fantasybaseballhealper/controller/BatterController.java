@@ -28,12 +28,12 @@ public class BatterController {
         this.batterService = batterService;
     }
 
-    // Endpoint to display the list of batters
+    // display the list of batters
     @GetMapping
     public String getBatters(Model model) {
         List<Batter> batters = batterService.getAllBatters();
         System.out.println("Retrieved Batters: " + batters);
         model.addAttribute("batters", batters);
-        return "batting-stats";  // Name of the template
+        return "batting-stats";
     }
 }

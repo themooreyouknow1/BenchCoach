@@ -30,6 +30,6 @@ public class PitcherProjectionController {
             System.out.println("Retrieved Pitcher Projections: " + pitcherProjections);
         }
         model.addAttribute("pitcherProjections", pitcherProjections);
-        return "pitcher-projections";  // Ensure this matches the name of the template
+        return "pitcher-projections";
     }
 }

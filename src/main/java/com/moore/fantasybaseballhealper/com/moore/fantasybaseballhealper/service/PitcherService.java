@@ -24,10 +24,9 @@ public class PitcherService {
         this.pitcherRepository = pitcherRepository;
     }
 
-    // Fetch all pitchers from the database
     public List<Pitcher> getAllPitchers() {
         List<Pitcher> pitchers = pitcherRepository.findAll();
-        System.out.println("Pitchers retrieved: " + pitchers);  // Add a log here
+        System.out.println("Pitchers retrieved: " + pitchers);
         return pitchers;
     }
     public Optional<Pitcher> getPitcherById(Long id) {

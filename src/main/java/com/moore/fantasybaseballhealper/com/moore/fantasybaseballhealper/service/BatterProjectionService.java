@@ -17,7 +17,7 @@ public class BatterProjectionService {
         this.batterProjectionRepository = batterProjectionRepository;
     }
 
-    // Fetch all batter projections from the database
+    // get projections
     public List<BatterProjection> getAllBatterProjections() {
         List<BatterProjection> batterProjections = batterProjectionRepository.findAll();
         System.out.println("Batter Projections retrieved: " + batterProjections);  // Add a log here

@@ -47,16 +47,16 @@ th {
 }
 
 th.sort-asc::after {
-    content: "\f0de"; /* Font Awesome icon for up arrow */
+    content: "\f0de";
     font-family: FontAwesome;
 }
 
 th.sort-desc::after {
-    content: "\f0dd"; /* Font Awesome icon for down arrow */
+    content: "\f0dd";
     font-family: FontAwesome;
 }
 
-/* Footer styles */
+
 footer {
     grid-area: footer;
     display: flex;
@@ -67,7 +67,6 @@ footer {
     padding: 10px;
 }
 
-/* Links styling */
 a {
     text-decoration: none;
     color: #b2832f;

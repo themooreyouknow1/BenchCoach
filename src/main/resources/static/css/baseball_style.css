@@ -13,7 +13,7 @@ html, body {
     margin: 0;
 }
 
-/* The main container using grid layout */
+
 main {
     display: grid;
     grid-template-areas:
@@ -21,10 +21,10 @@ main {
         "main main main main"
         "links links links links"
         "footer footer footer footer";
-    grid-template-columns: 1fr 1fr 1fr 1fr; /* 4 equal columns */
-    grid-template-rows: auto 1fr auto 100px; /* Adjust row sizes: header, content, links, footer */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto 1fr auto 100px;
     gap: 10px;
-    min-height: 100vh; /* Ensure it takes up the full viewport height */
+    min-height: 100vh;
 }
 
 
@@ -53,7 +53,7 @@ article {
 
 .image-link {
     width: 300px;
-    height: auto; /* Set a fixed width for images */
+    height: auto;
     cursor: pointer;
     border: 2px solid #ccc;
     box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.3);

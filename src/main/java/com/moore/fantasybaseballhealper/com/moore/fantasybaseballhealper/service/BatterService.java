@@ -23,7 +23,7 @@ public class BatterService {
         this.batterRepository = batterRepository;
     }
 
-    // Fetch all batters from the database
+    // get batters
     public List<Batter> getAllBatters() {
         List<Batter> batters = batterRepository.findAll();
         System.out.println("Batters retrieved: " + batters);  // Add a log here

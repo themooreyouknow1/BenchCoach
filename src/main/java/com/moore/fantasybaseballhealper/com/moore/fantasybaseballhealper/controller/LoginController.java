@@ -23,7 +23,7 @@ public class LoginController {
     public String loginUser(@RequestParam String username, @RequestParam String password, Model model, HttpSession session) {
         User user = userRepository.findByEmail(username);
         if (user != null && passwordEncoder.matches(password, user.getPassword())) {
-            session.setAttribute("user", user); // Store the user object in the session
+            session.setAttribute("user", user);
             return "redirect:/home";
         } else {
             model.addAttribute("error", "Invalid username or password");
@@ -33,16 +33,16 @@ public class LoginController {
 
     @GetMapping("/login")
     public String loginPage() {
-        return "login";  // Return login page
+        return "login";
     }
 
     @GetMapping("/profile")
     public String profilePage(Model model, HttpSession session) {
-        User user = (User) session.getAttribute("user");  // Retrieve user from session
+        User user = (User) session.getAttribute("user");
         if (user == null) {
             return "redirect:/login";
         }
-        model.addAttribute("user", user);  // Add user to model for the profile page
+        model.addAttribute("user", user);
         return "profile";
     }
 

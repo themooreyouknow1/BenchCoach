@@ -31,6 +31,6 @@ public class PitcherController {
     public String getPitchingStats(Model model) {
         List<Pitcher> pitchers = pitcherService.getAllPitchers();
         model.addAttribute("pitchers", pitchers);
-        return "pitching-stats";  // This matches the HTML file name
+        return "pitching-stats";
     }
 }

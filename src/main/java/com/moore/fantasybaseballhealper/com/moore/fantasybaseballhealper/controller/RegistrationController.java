@@ -44,7 +44,7 @@ public class RegistrationController {
             return "registration";
         }
 
-        // Save the new user
+        // Save
         userRepository.save(user);
         return "redirect:/login";
     }

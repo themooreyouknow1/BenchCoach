@@ -28,14 +28,14 @@ public class PlayerTargetController {
         return "player-targets";
     }
 
-    // Show form for creating a new player target
+    // creating a new player
     @GetMapping("/new")
     public String showCreatePlayerTargetForm(Model model) {
         model.addAttribute("playerTarget", new PlayerTarget());
         return "player-target-form";
     }
 
-    // Save the new player target
+    // Save
     @PostMapping("/save")
     public String savePlayerTarget(@ModelAttribute("playerTarget") PlayerTarget playerTarget) {
         playerTargetService.savePlayerTarget(playerTarget);
@@ -50,7 +50,7 @@ public class PlayerTargetController {
         }
         return "redirect:/player-targets";
     }
-    // Update the player target
+    // Update the player
     @PostMapping("/update/{id}")
     public String updatePlayerTarget(@PathVariable Long id, @ModelAttribute("playerTarget") PlayerTarget playerTarget) {
         playerTarget.setId(id);
@@ -58,7 +58,7 @@ public class PlayerTargetController {
         return "redirect:/player-targets";
     }
 
-    // Delete a player target
+    // Delete a player
     @GetMapping("/delete/{id}")
     public String deletePlayerTarget(@PathVariable Long id) {
         playerTargetService.deletePlayerTarget(id);
