@@ -1,4 +1,4 @@
-Fantasy Baseball Helper
+Bench Coach-Fantasy Baseball Draft Assistant
 by: Jacob Moore
 
 Welcome to Fantasy Baseball Helper – a web-based application designed to assist fantasy baseball players in making smarter draft decisions.
